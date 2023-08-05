@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lookback</title>
+</head>
+<body>
+    <script>
+        //function
+        /* 
+            定义：(arg是形参)
+                函数表达式：
+                    let fnName = function(arg1,arg2,...){}
+                函数声明式：
+                    function fnName(arg1,arg2,...){}
+            调用：(arg是实参)
+                fnName (arg1,arg2,...)
+
+            arguments获取参数列表，arguments 是一个伪数组
+            把伪数组转为真数组的方法：
+            1.  const arr = Array.from(arguments)
+            2.  const arr = [...arguments]     ...扩展运算符
+
+            作用域：
+                全局作用域   
+                函数作用域（局部作用域）
+                块级作用域
+            箭头函数：
+                let fn = ()=>{代码块}
+                当有且只有一个参数的时候（）可以省略
+                当代码块只有一行代码的时候{} 可以省略，及return
+                箭头函数没有arguments
+            递归：在函数内部调用函数自身（必须要有触发条件，避免进入死递归）
+        */
+        function fn (){
+            console.log(arguments);
+            
+        }
+        fn(1,2,3,4)
+            
+        //Q2 某个公司采用公用电话传递数据，数据是四位的整数，在传递过程中是加密的，
+        //加密规则如下：每位数字都加上5,然后用除以10的余数代替该数字，再
+        //将第一位和第四位交换，第二位和第三位交换，请编写一个函数，传入原文，输出密文
+     
+
+        /* 传入一个4位数字  =》   每位数字+5   =>10%    4 3  2 1 */
+
+        function passwordFn(num){
+            // 取个位数字   第4位
+            let a = num%10   
+            // 取十位数字   第3位
+            let b = parseInt(num%100/10)
+            // 取百位数字   第2位
+            let c = parseInt(num%1000/100)
+            // 取千位数字   第1位
+            let d = parseInt(num/1000)
+            console.log(d,c,b,a);   //1 2 3 4
+
+            // 每位数字+5
+            a = (a+5)%10   
+            b = (b+5)%10
+            c = (c+5)%10
+            d = (d+5)%10        
+            console.log(d,c,b,a);  //6 7 8 9
+
+            // 交换位置：a b c d
+            console.log(a,b,c,d);
+            const pwd= a*1000+b*100+c*10+d
+            return pwd
+        }
+        const password = passwordFn(1234)
+        console.log(password);
+        
+    </script>
+</body>
+</html>

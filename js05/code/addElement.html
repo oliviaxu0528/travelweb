@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>element add delete change</title>
+</head>
+<body>
+    <!-- DOM元素的增删改查 -->
+    <ul class="ul">
+        <li class="orgLi1">list item1</li>
+        <li class="orgLi2">list item2</li>
+        <li class="orgLi3">list item3</li>
+    </ul>
+    <div class="div1">div1</div>
+    <script>
+        // 增加元素对象：页面中添加元素 add element
+        // document.createElement('tagName')  创建标签
+        var a = document.createElement('div')
+        // 向标签中添加内容   
+        
+        // 1.  a.innerText  将内容当作文本显示
+        a.innerText='<p>这是P  tag</p>'
+        // 2.  a.innerHTML将内容当作html结构解析
+        a.innerHTML='<p>这是a里面的P  tag</p>'
+        // 1.2两种都是直接替换标签中的所有内容
+        console.log(a);
+         
+        // let body = document.querySelector('body')
+        // body.appendChild(a)
+        // 向某个元素中添加子元素，添加到父元素的末尾  ul.appendChild(li)
+        // 父元素.appendChild(子元素)
+        var ul = document.getElementsByClassName('ul')[0]
+        var li = document.createElement('li')
+        li.innerText='这是通过JS创建的li'
+        // console.log(li);
+        ul.appendChild(li)
+        // console.log(ul);
+        // 添加兄弟元素    父元素.insertBefore(要添加的子元素,旧子元素)
+        var orgLi1 = document.querySelector('.orgLi1')
+        console.log(orgLi1);
+        ul.insertBefore(li,orgLi1)
+
+        // 删除DOM元素  父元素.removeChild(要删除的子元素)
+        var orgLi2 =document.querySelector('.orgLi2')
+        // console.log(orgLi2);
+        ul.removeChild(orgLi2)
+        
+        // 修改Dom元素
+        // 1. 使用innerText  innerHTML 替换元素内容
+        // 2. 先删除在添加  父元素.removeChild(要删除的子元素)    父元素.insertBefore(要添加的子元素,旧子元素) / 父元素.appendChild(子元素)
+        // 3. 替换元素   父元素.replaceChild(新子元素,旧子元素)
+        var orgLi3 =document.querySelector('.orgLi3')
+        console.log(orgLi3);
+        // 使用a替换掉ul里面的orgLi3
+        ul.replaceChild(a,orgLi3)
+    </script>
+</body>
+</html>

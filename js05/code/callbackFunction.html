@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback function</title>
+</head>
+<body>
+    <script>
+        // callback function  回调函数：函数作为参数
+        let arr = [5,1,3,7]
+        // const arr1 = arr.sort((a,b)=>a-b)  //[1, 3, 5, 7]
+        const arr1 = arr.sort((a,b)=>b-a)  // [7, 5, 3, 1]
+        console.log(arr1);
+
+        // 定时器 setInterval  延时器 setTimeout
+        // setTimeout(回调函数，间隔时间)  间隔时间单位是毫秒  1000毫秒 = 1s
+        // 间隔时间之后执行回调函数（只执行一次）
+        setTimeout(function(){
+            console.log('延时器,1s之后调用');
+        },2000)
+
+        // setInterval(回调函数，时间间隔)
+        // 每隔一个间隔时间就执行一次回调函数，只要页面不关闭就一值执行
+        var a = 0
+        const timer = setInterval(()=>{
+            a++
+            console.log('setInterval',a);
+            if(a==3){
+                // 清除定时器
+                // clearInterval  clearTimeout  （两种可以混用）
+                clearInterval(timer)
+            }
+        },1000)
+
+        console.log(2222);
+        // setInterval  setTimeout  异步 先执行同步代码
+        setTimeout(()=>{
+            console.log('setTimeout,延时0s');
+        },0)
+        console.log(1111);
+        console.log(2222);
+
+        function time (fn){
+            fn()
+        }
+        time(()=>{
+            console.log('time');
+        })
+    </script>
+</body>
+</html>

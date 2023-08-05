@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object</title>
+</head>
+<body>
+    <script>
+        // object  对象：键值对的集合
+        // {key:value,key1:value1}
+        // 字面量方式定义对象
+        var obj = {
+            name:'tom',
+            age : 18
+        }
+        var obj1 = {}
+        console.log(obj);
+        console.log(obj1);
+        // 内置构造函数定义对象
+        var obj2 =new  Object()
+        console.log(obj2);
+
+        // 访问对象中的属性值   obj.属性名
+        console.log('obj.name',obj.name);
+
+        // 相对象中添加内容
+        // 对象.属性名=属性值
+        // 对象['字符串属性名'] = 属性值
+        obj2['age'] = 16
+        obj2.name = 'Mary'
+        console.log('增加name,age属性后的obj2',obj2);
+        // 如果对象中有该属性，就改变该属性的值
+        obj.age=13
+        console.log('更改age后的obj',obj);
+
+        // 删除对象中的元素
+        delete obj2.name
+        console.log('删除name后的obj2',obj2);
+
+        // 构造函数创建对象(专门用来创建对象)   可以快速创建多个相同或相似的对象
+        // 函数名首字母大写
+        function Dog(name,age,color){
+            this.name = name,
+            this.age = age,
+            this.color = color
+            this.a = 'zhangsan'
+            this.fn = ()=>{
+                console.log('这是对象里的函数，也叫方法');
+            }
+        }
+        // taidi叫做Dog的一个实例对象
+        // 创建实例对象  new Dog()
+        let taidi = new Dog('xiaohuang',5,'yellow')
+        let tai = new Dog('xiaobai',3,'#fff')
+        console.log(taidi);
+        console.log(tai.color);
+        // 调用对象里的方法
+        tai.fn()
+
+        const fn = ()=>{
+            console.log('fn');
+        }
+
+        console.log(taidi.hasOwnProperty());
+
+        /* 
+            new 一个实例对象：
+                1.先创建一个空对象{}
+                2.将this指向实例对象
+                3.执行函数中的代码
+                4.将创建好的对象返回
+        */
+    </script>
+</body>
+</html>

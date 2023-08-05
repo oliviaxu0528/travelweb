@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closure</title>
+</head>
+<body>
+    <!-- 闭包 closure -->
+    <script>
+        // 闭包 closure  ：在函数的内部就是能够读取其他函数内部变量的函数
+        /* 
+            在函数的内部，访问了其他函数内部的局部变量的函数的执行区间叫做闭包
+            在函数内部嵌套函数 ，内部函数引用了外部函数的变量
+
+            严格来说，闭包需要满足三个条件：
+                【1】访问所在作用域
+                【2】函数嵌套
+                【3】在所在作用域外被调用
+        */
+        function fn (){
+            let num = 5;
+            console.log('fn',num);
+            return function(){
+                // 在返回的函数中使用了fn函数中的变量
+                const count = num+1
+                console.log('这是fn返回的函数',count);
+            }
+        }
+        
+        const fn1 = fn()
+        fn1()
+        const func=()=>{
+            let a=3
+            console.log(a);
+            // return console.log('返回的a',a);
+        }
+        const res = func()
+        console.log(res);
+    </script>
+</body>
+</html>

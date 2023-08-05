@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>get dom elements</title>
+    <style>
+        div{
+            width: 100px;
+            height: 30px;
+            background-color: lightblue;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>div</div>
+    <div>div</div>
+    <div class="box div">div box</div>
+    <input type="text" name="iptName" id = 'ipt'>
+    <input type="text" name="iptName" class="box">
+    <input type="text" name="iptName" class="box">
+    <script>
+
+        /* 
+            doucment.getElementById('id名称')     //通过id名获取元素（一个）
+            document.getElementsByTagName('标签名称')   //通过标签名获取元素（一组）
+            document.getElementsByName('name名称')     //通过name属性获取元素（一组）
+            document.getElementsByClassName('class名称')  //通过classname获取元素（一组）
+            document.querySelector（'.class名称/#id名称/tagname'）  //通过id/classname/tagname获取元素（获取第一个符合条件的元素）
+            document.querySelectorAll('.class名称/#id名称/tagname')  //通过id/classname/tagname获取元素(获取符合条件的元素的集合，返回一个数组)
+        */
+
+        // 通过js获取Dom元素
+        // document.getElementById('ipt')  通过id名获取元素（唯一的元素）
+        var iptId = document.getElementById('ipt')
+        console.log(iptId);
+        // document.getElementsByTagName('div')  
+        // 通过标签名获取元素：得到一个数组，包含所有标签名为div的元素，可以通过下标获取某一个元素
+        // 只有一个元素也是数组，需要通过下标来获取
+        var div = document.getElementsByTagName('div')
+        var input = document.getElementsByTagName('input')
+        console.log(div);
+        console.log(input[0]);
+        // document.getElementsByClassName('box')  
+        // 通过类名获取元素：得到一个数组，包含所有类名为box的元素，可以通过下标获取某一个元素
+        // var elements = document.getElementsByClassName('box')
+        var elements = document.getElementsByClassName('div')  //只有一个元素也是数组，需要通过下标来获取
+        console.log(elements);
+
+        var name = document.getElementsByName('iptName')
+        // document.getElementsByName('iptName')  
+        // 通过name属性来获取元素 ，得到一个数组
+        console.log(document.getElementsByName('iptName'));
+
+        // document.querySelector('#idName/.className/tagName')
+        // 选择一个元素，如果有多个符合条件只选择到第一个
+        var oneEle = document.querySelector('.box')
+        console.log(oneEle);
+        // document.querySelectorAll('#ipt') 
+        // 获取所有符合条件的元素，得到一个数组，即便只有一个也是一个数组
+        // var eles = document.querySelectorAll('#ipt')
+        var eles = document.querySelectorAll('div')
+        console.log(eles);
+    </script>
+</body>
+</html>
