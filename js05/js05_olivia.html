@@ -115,13 +115,109 @@
     }
 
     ];
-    for (let i = 0; i < scoreArr.length; i++) {
-        var obj = {}
-        var total = scoreArr[i].chinese + scoreArr[i].math + scoreArr[i].english;
-        obj.total = total
-        obj.sno = scoreArr
+    var scoreArr = [{
+        sno: 1,
+        chinese: 105,
+        math: 62,
+        english: 118
+    },
+    {
+        sno: 2,
+        chinese: 89,
+        math: 78,
+        english: 120
+    },
+    {
+        sno: 3,
+        chinese: 86,
+        math: 64,
+        english: 80
+    },
+    {
+        sno: 4,
+        chinese: 78,
+        math: 99,
+        english: 91
+    },
+    {
+        sno: 5,
+        chinese: 107.5,
+        math: 97,
+        english: 70
+    },
+    {
+        sno: 6,
+        chinese: 112,
+        math: 61,
+        english: 92
+    },
+    {
+        sno: 7,
+        chinese: 101,
+        math: 79,
+        english: 104
+    },
+    {
+        sno: 8,
+        chinese: 71,
+        math: 72,
+        english: 105
+    },
+    {
+        sno: 9,
+        chinese: 56,
+        math: 68,
+        english: 61
+    },
+    {
+        sno: 10,
+        chinese: 98,
+        math: 83,
+        english: 77
     }
-//work4 
+
+    ];
+
+    let res = []
+    for (let i = 0; i < scoreArr.length; i++) {
+
+        var total = scoreArr[i].chinese + scoreArr[i].math + scoreArr[i].english;
+        var sno = scoreArr[i].sno
+        console.log(`${sno} -> ${total}`)
+        var obj = {}
+        obj.sno = sno;
+        obj.total = total;
+        res.push(obj)
+    }
+    res.sort((a, b) => b.total - a.total)
+    scoreArr.sort((a, b) => b.chinese - a.chinese)
+    console.log(`highest chinese: ${scoreArr[0].chinese}, student number is ${scoreArr[0].sno}`)
+    console.log('res: ', res)
+    //work4 
+    function findMostRepeatedItem(string) {
+        // Step 1: Split the string into individual characters
+        const items = string.split("");
+
+        // Step 2: Create a dictionary to count occurrences
+        const itemCounts = items.reduce((counts, item) => {
+            counts[item] = (counts[item] || 0) + 1;
+            return counts;
+        }, {});
+
+        console.log(JSON.stringify(itemCounts));
+
+        // Step 3: Use reduce to find the most repeated item
+        const mostRepeatedItem = Object.keys(itemCounts).reduce((currentMax, currentItem) => {
+            return itemCounts[currentItem] >= itemCounts[currentMax] ? currentItem : currentMax;
+        });
+
+        return mostRepeatedItem;
+    }
+
+    // Example usage:
+    const inputString = "hello world";
+    const mostRepeated = findMostRepeatedItem(inputString);
+    console.log(`The most repeated item in the string is: ${mostRepeated}`);
 </script>
 </body>
 

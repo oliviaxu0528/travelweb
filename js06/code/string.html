@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string</title>
+</head>
+<body>
+    <script>
+        var name = 'Tom1111'
+        // 定义字符串
+        var str = 'hello string '
+        var str2 = " hello string "
+        //template literals  模板字符串  ``    
+        // 在模板字符串中可以通过${}使用变量
+        var str1 = `hello ${name}`
+        console.log(str1);
+
+        console.log('str1.length',str1.length);
+        // 字符串的拼接
+        console.log(str+str2);
+        console.log(str.concat(str2));
+        console.log(str2);
+        // str2.trim()  去除两端的空格
+        // console.log(str2.trim());
+        // str2.trimLeft()  去除左边的空格
+        console.log(str2.trimLeft());
+        // str2.trimRight()  去除右边的空格
+        console.log(str2.trimRight());
+
+        // str.slice(开始下标,结束下标)  包含开始下标，不包含结束下标对应的字符（包前不包后）
+        console.log(str.slice(0,2));   //复制字符串
+        console.log('str:',str);   //hello string
+        console.log(str.substring(3,5));  //lo
+        console.log('str:',str);
+        console.log(str.substr(2,3));   //(开始下标，截取长度)  llo
+        console.log('str:',str);
+
+        // 判断字符串是否包含某个字符
+        console.log(str.includes('o'));   //是否包含某个字符  返回布尔值  、true 
+        console.log(str.search('l'));   //查找元素，找到返回其下标，找不到返回-1,有多个返回第一个的下标
+        console.log(str.indexOf('l'));   //查找元素，找到返回其下标，找不到返回-1,有多个返回第一个的下标
+        console.log(str.lastIndexOf('l'));  //查找元素，找到返回其下标，找不到返回,有多个返回最后一个的下标
+
+        // 数组转为字符串
+        var arr = [1,2,3]
+        console.log(arr.join('-'));
+        // 把字符串转为数组  str.split()
+        console.log(str.split());  // ['hello string']
+        console.log(str.split(''));  //  ['h', 'e', 'l', 'l', 'o', ' ', 's', 't', 'r', 'i', 'n', 'g', ' ']
+        var date = '2023/08/05'
+        console.log(date.split('/'));   //['2023', '08', '05']
+
+        // 替换字符串  date.replace('要替换的字符','要换成的字符')
+        console.log(date.replace('/','-'));   //只替换第一个
+        console.log(date.replaceAll('/','**'));  //替换所有的
+
+        console.log(str.charCodeAt());
+        console.log(str.charAt(63));  //返回编号对应的字符串中的字符
+
+        var string = 'HeLlO'
+        console.log(string.toLowerCase());   //转化为小写字母
+        console.log(string.toUpperCase());    //转化为大写字母
+
+        
+    </script>
+</body>
+</html>

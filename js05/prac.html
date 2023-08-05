@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //4.
+        var str = "asdasdfghajghg";
+        //4.1 将字符串转化为数组
+        console.log(str.split());  // ['hello string']
+        //console.log(str.split(''));  //  ['h', 'e', 'l', 'l', 'o', ' ', 's', 't', 'r', 'i', 'n', 'g', ' ']
+        console.log('arr: ', str.split(''));
+
+        //4.2 实现字符串反转
+        console.log(str.split('').reverse().join(''))
+        //3.统计字符的个数
+        console.log(str.length)
+        //4.求出出现最多的字符
+
+        function findMostRepeat(string) {
+            const items = string.split('');
+            const itemCounts = items.reduce((counts, item) => {
+                counts[item] = (counts[item] || 0) + 1;
+                return counts;
+            }, {})
+        }
+        console.log('count: ', findMostRepeat('1234ddwds'))
+    </script>
+</body>
+
+</html>

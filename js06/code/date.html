@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>date</title>
+</head>
+<body>
+    <script>
+        // Date  日期对象
+        var date = new Date()   //获取当前时间
+        // var date = new Date('08/06/2023')  //获取当日0点的时间  '月/日/年'
+        // var date = new Date('08/06/2023 08:00:00')  //获取当日0点的时间  '月/日/年 时：分：秒'
+        // var date = new Date('月/日/年 时：分：秒')  
+        console.log(date);   //Sat Aug 05 2023 11:49:36 GMT+0800 (中国标准时间)
+
+
+        // date.getTime()  获取时间戳   从1970.1.1日0点 到指定日期所经过的毫秒数
+        console.log(date.getTime());
+        console.log(date.getFullYear())  ;  //获取年份   2023
+        console.log(date.getMonth(),'+1月');    //获取月份（获取到的数字是月份-1）   0-11  0=》1月  7=》8月份
+        console.log(date.getDate());     //获取日期   5号
+        console.log('周',date.getDay());    //获取今天是周几   6
+        console.log('hours', date.getHours());   //获取小时
+        console.log(date.getMinutes());     //获取分钟
+        console.log(date.getSeconds());    //获取秒
+        console.log(date.getMilliseconds());    //获取毫秒
+        
+        console.log(date.toDateString());  //周几  月 日 年
+        console.log(date.toString());     // Sat Aug 05 2023 11:49:36 GMT+0800 (中国标准时间)
+
+    </script>
+</body>
+</html>

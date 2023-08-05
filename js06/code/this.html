@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this</title>
+</head>
+<body>
+    <script>
+
+        /* 
+            箭头函数没有自己的this(所以不能改变其this) ,箭头函数的this是上下文的this,
+        */
+
+            // (1) 全局作用域下 this 指 window对象 （严格模式下是undefined）
+            console.log(this);
+            // window.alert('123')
+
+
+            // (2) 构造函数中 this 指实例化对象
+            function Person(){
+                this.name= 'Tom',
+                this.age = 5,
+                this.fn = function(){
+                    console.log(this);
+                },
+                this.fn1 = ()=>{
+                    console.log(this);
+                }
+            }
+            const  p = new Person()
+            console.log(p);
+            p.fn()   //打印this  实例对象p：Person {name: 'Tom', age: 5, fn: ƒ}
+            p.fn1()  //Person {name: 'Tom', age: 5, fn: ƒ}
+
+            // (3) 普通函数中 this 指window对象
+            function fn (){
+                console.log(this);
+            }
+            fn()
+            // (4) 对象下面的方法 this 指该对象
+            var name = 'zhangsan'
+            var obj = {
+                age:4,
+                // 对象简化写法
+                name,   //name：name
+                getThis(){
+                    console.log(this);   //指向对象自身 
+                },
+                fn:function(){
+                    console.log(this);  //指向对象自身
+                },
+                fn1:()=>{
+                    console.log(this);  //  window
+                }
+            }
+            obj.getThis()   //{name: '123', age: 4, getThis: ƒ}
+            obj.fn()    //{name: '123', age: 4, getThis: ƒ, fn: ƒ, fn1: ƒ}
+            obj.fn1()  //window
+
+
+            // 严格模式下是undefined）
+            function fun(){
+                'use strict'  //开启局部严格模式
+                console.log(this);   //undefined
+            }
+            fun()
+    </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>work</title>
+</head>
+
+<body>
+    <script>
+
+        // 3.以下是某班级一次考试的成绩表。请计算每个学生总成绩，并按总成绩排名。统计各单科成绩第一名，输出其成绩与学号
+        var scoreArr = [{
+            sno: 1,
+            chinese: 105,
+            math: 62,
+            english: 118
+        },
+        {
+            sno: 2,
+            chinese: 89,
+            math: 78,
+            english: 120
+        },
+        {
+            sno: 3,
+            chinese: 86,
+            math: 64,
+            english: 80
+        },
+        {
+            sno: 4,
+            chinese: 78,
+            math: 99,
+            english: 91
+        },
+        {
+            sno: 5,
+            chinese: 107.5,
+            math: 97,
+            english: 70
+        },
+        {
+            sno: 6,
+            chinese: 112,
+            math: 61,
+            english: 92
+        },
+        {
+            sno: 7,
+            chinese: 101,
+            math: 79,
+            english: 104
+        },
+        {
+            sno: 8,
+            chinese: 71,
+            math: 72,
+            english: 105
+        },
+        {
+            sno: 9,
+            chinese: 56,
+            math: 68,
+            english: 61
+        },
+        {
+            sno: 10,
+            chinese: 98,
+            math: 83,
+            english: 77
+        }
+
+        ];
+        console.log(scoreArr);
+        // 计算每个学生的总成绩
+        var arr = []
+        for (let i = 0; i < scoreArr.length; i++) {
+            var obj = {}
+            // 总成绩：语文成绩+数学成绩+英语成绩
+            var total = scoreArr[i].chinese + scoreArr[i].math + scoreArr[i].english
+            // console.log(total);
+            obj.total = total
+            obj.sno = scoreArr[i].sno
+            arr.push(obj)
+        }
+        console.log(arr);
+        arr.sort((a,b)=>b.total-a.total)
+        console.log(arr);
+
+
+        var chinese = 0
+        var math = 0
+        var english =0
+        for (let i = 0; i < scoreArr.length; i++) {
+            if(scoreArr[i].chinese>chinese){
+                chinese = scoreArr[i].chinese
+                var chineseSno = scoreArr[i].sno
+            }
+            if(scoreArr[i].math>math){
+                math = scoreArr[i].math
+                var mathSno = scoreArr[i].sno
+            }
+            if(scoreArr[i].english>english){
+                english = scoreArr[i].english
+                var englishSno = scoreArr[i].sno
+            }
+            
+        }
+        console.log('chinese',chinese,chineseSno);
+        console.log('math',math,mathSno);
+        console.log('english',english,englishSno);
+
+        // 4.
+        var str2 = "asdasdfghajghg";
+        console.log('str2',str2);
+        // 1.将字符串转化为数组
+        console.log(str2.split(''));
+        // 2.实现字符串反转
+        console.log(str2.split('').reverse().join(''));
+        // 3.统计字符的个数
+        console.log(str2.length);
+        // 4.求出出现最多的字符
+        var strArr = str2.split('')
+        // 遍历数组
+        // strArr.forEach((value,index,arr) => {
+        //     console.log(value,index ,arr);
+        // });
+        var strObj = {}
+        strArr.forEach((v,i) => {
+
+            if(strObj[v]){
+                 // 如果strObj中有该属性，就让该属性的值+1，记录出现次数
+                strObj[v] = strObj[v]+1
+            }else{
+                // 如果strObj中没有该属性，就添加该属性，并记录出现次数为1
+                strObj[v]=1
+                console.log(strObj);
+            }
+        });
+        console.log(strObj);
+
+        // 遍历对象
+        var count = 0
+        var value = ''
+        for(let item in strObj){
+            // console.log(item);
+            console.log(strObj[item]);
+            if(strObj[item]>=count){
+                count = strObj[item]
+                value = item
+            }
+
+        }
+        console.log(value,count);
+    </script>
+</body>
+
+</html>

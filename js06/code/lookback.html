@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Element   dom元素的增删改查
+        /* 
+        document.getElementById()
+        document.getElementsByClassName()
+        document.getElementsByTagName()
+        document.querySelector()
+        document.querySelectorAll() 
+
+        var div =  document.createEelement('div')
+        div.innerHTML='string'
+        div.innerText='string'
+        body.appendChild(div)
+        在旧元素前面插入新元素
+        父元素.insertBefore( 新元素, 旧元素 ); 
+
+        删除元素
+        父元素.removeChild(child); 
+
+        修改
+        parent.replaceChild(newChild,oldChild);
+        */
+    //    递归：在函数内部调用函数自身，需要有判断条件避免进入死递归
+        // closure  闭包
+        // 能够访问其他函数内部的局部变量的函数
+        
+
+        // setInterval  定时器，每隔一段时间执行一次
+        // setTimeout  延时器  过一定的时间再执行，只执行一次
+        // 都是异步执行
+        var a = setInterval(()=>{},1000)
+        var b = setTimeout(()=>{},1000)
+        // 清除定时器(两个都可以，可以混用)
+        // clearInterval(a)
+        // clearInterval(b)
+        clearTimeout(a)
+        clearTimeout(b)
+        
+        // object  {key:value,key:value}
+        var obj = {
+            name:'key',
+            age:12
+        }
+        var obj1 = new  Object()
+
+        // 构造函数：专门用来创建对象
+        function Person(name,age){
+            this.name=name
+            this.age=age
+        }
+        const c = new Person('c',5)
+        console.log(c);
+        /* 
+            构造函数：在使用new关键字创建对象时做了哪些事情：
+                1.new Person() 创建一个空对象{}
+                2.把构造函数的this指向实例对象{}
+                3.执行构造函数内部的代码，给对象添加属性
+                4.返回新对象 
+         */
+
+       
+    </script>
+</body>
+
+</html>
