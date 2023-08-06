@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul class="ul">
+        <li class="orgLi1">list item1</li>
+        <li class="orgLi2">list item2</li>
+        <li class="orgLi3">list item3</li>
+    </ul>
+
+    <script>
+        var a = document.createElement('div')
+
+        a.innerHTML = "<p> i'm hunty bao </P>"
+        a.innerText = '<p>hunty yessss</p>'
+        console.log(a);
+
+
+        //let body = document.querySelector('body');
+        //body.appendChild('a')
+
+        var orgLi2 = document.querySelector('.orgLi2')
+
+        console.log(orgLi2);
+        var ul = document.getElementsByClassName('ul')[0]
+
+        console.log('ul: ', ul)
+        ul.replaceChild(a, orgLi2);
+
+        var li = document.getElementsByClassName('orgLi1')[0].innerText
+
+        var li4 = document.createElement('li4')
+        li4.innerText = "hunt is good boi!"
+        ul.appendChild(li4);
+        console.log('li: ', li)
+
+        var orgLi3 = document.querySelector('.orgLi3');
+        ul.removeChild(orgLi3);
+    </script>
+</body>
+
+</html>
