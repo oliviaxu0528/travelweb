@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array</title>
+</head>
+<body>
+    <script>
+        // 定义数组
+        // 字面量方式定义数组
+        var arr  = [1,'xiaoming',3]
+        // 内置构造函数 只传一个数字代表数组长度
+        var arr1 = new Array(5,164,46,45)
+        console.log(arr1);
+
+        // 遍历数组
+        // 1. for 
+        for (let i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+        }
+        // 2.forEach((value,index,arr)=>{})
+        arr.forEach((v,i)=>{
+            console.log(i,v,arr[i]);
+        })
+        // 3.for in   => for (const index in arr) {}
+        for (const key in arr) {
+            // key 为下标
+            console.log(key,arr[key]);
+        }
+        console.log('=========4-for-of=========');
+        // 4. for of
+        for (const item of arr) {
+            // item为数组元素
+            console.log(item);
+        }
+        console.log('=========5-map=========');
+        // 5. map   arr.map((value,index,arr)=>{})
+        arr.map((v,i)=>{
+            console.log(i,v);
+        })
+        
+        
+        console.log('=========for in遍历对象=========');
+        var obj = {
+            name:'zhangsan',
+            age:16
+        }
+        for (const key in obj) {
+            // key为属性名
+            console.log(key,obj[key]);
+        }
+        console.log('=========for of遍历对象=========');
+        // 对象不能使用for of遍历
+        // Uncaught TypeError: obj is not iterable 
+        // for (const key of obj) {    
+        //     console.log(key);
+        // }
+        
+        console.log('=========forEach  和 map 的区别=========');
+        // forEach  和 map 的区别  :map方法有返回值是一个数组，forEach 没有返回值
+        let arrForEach = arr.forEach((v,i)=>{
+            console.log(i,v,arr[i]);
+            return v+'forEach返回的v'
+        })
+        let arrMap = arr1.map((v,i)=>{
+            console.log(i,v);
+            return v*2
+            // return v+'map返回的v'
+        })
+        console.log('arrForEach',arrForEach);
+        console.log('arrMap',arrMap);
+
+        console.log(arr.length);
+        console.log(arr.concat(9,4));
+        console.log(arr.slice(0,1));  //包含开始位置，不包括结束位置\
+        console.log(arr.splice(1,2,'插入的元素1','插入的元素2','插入的元素3'))
+        console.log(arr.join('-'));    //数组转为字符串
+        console.log('string'.split('i'));   //字符串转为数组
+        console.log(arr.reverse());   //反转数组
+        // arr.sort((a,b)=>b-a)
+        console.log(arr);
+        console.log(arr.indexOf(10));  //找到返回数组下标，zhao不到返回-1
+        console.log(arr.lastIndexOf(1));  //找到返回数组下标，zhao不到返回-1
+        // 添加
+        arr.push('push')
+        arr.unshift('unshift')
+        
+        // 删除
+        arr.pop('pop')
+        arr.shift('shift')
+
+       console.log( arr.includes(1));  //数组中是否包含某一项，包含返回true,不包含返回false
+
+
+
+    </script>
+</body>
+</html>

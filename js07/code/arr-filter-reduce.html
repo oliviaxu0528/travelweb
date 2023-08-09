@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arr-filter-reduce</title>
+</head>
+<body>
+    <script>
+        var arr = [1,5,8,6,3,4,7,1]
+        // 过滤     //返回符合条件的元素组成的数组
+        // arr.filter((v,i,arr)=>{
+        //     // console.log(v,i,arr);  // v为数组元素  i为数组下标  arr为原数组
+            //  retun 条件         //返回符合条件的元素组成的数组
+        // })
+        let filter = arr.filter((v)=>{
+            return v>5      //返回符合条件的元素组成的数组
+        })
+        console.log(filter);  //[8,6,7]
+
+
+        // reduce 累加器
+        // 接受两个参数：
+        // 第一个参数是一个函数，该函数接受两个参数，第一个参数累加的初始值，是一个变量，第二个参数是数组元素
+        // 第二个参数是累加初始值，也就是第一个参数的第一个参数值
+        // arr.reduce((sum,v)=>{return sum+v},sum的值)  sum就是累加的初始值
+        var arr1 = [1,2,3,4]
+        let reduce = arr1.reduce((sum,v)=>{
+            console.log(sum);
+            return sum + v
+        },0)
+        console.log(reduce);
+    </script>
+</body>
+</html>

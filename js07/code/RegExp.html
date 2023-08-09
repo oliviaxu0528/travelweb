@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regular expression</title>
+</head>
+<body>
+    <script>
+        // regular expression  正则表达式
+        // 正则的定义   修饰符可以不写（根据需要）
+        // 1.字面量定义方法
+        var reg = /abc/
+        // var reg = /要匹配的字符串/修饰符
+        // 2. 内置构造函数
+        var reg1 = new RegExp('abc','ig')
+        // var reg1 = new RegExp('要匹配的字符串','修饰符')
+        /* 
+            修饰符：
+            i: ignore  忽略大小写
+            g: global   全局匹配
+        */
+       var str = 'fabAbC12'
+    //    reg.test(string) 方法   匹配成功返回true,匹配失败返回false
+       console.log(reg.test(str));
+       console.log(/a/i.test('sAtr'));   //true
+
+
+    //    console.log(/ab/g.test(str));
+
+    //    []匹配到中括号内任一一个元素
+      // [^]表示除了[]里面元素的任意字符
+    //   var reg = /^[^A-Za-z0-9_.]/
+    // var numReg = /[0-9]/
+    // var numReg = /[0123456789]/
+    // var numReg = /[0-9A-Za-z]/
+
+
+    //  . 表示匹配除了换行（\r\n）之外的任意字符
+    // var reg = /^./
+    //  console.log('reg',reg.test('\r\nhjk'));
+    // ^ 表示以...开头
+    // $ 表示以...结尾
+    // var reg = /^ab/   //以ab开头
+    // var reg = /ab$/   //以ab结尾
+    // var reg = /^ab$/     //字符只能是ab
+
+    // 量词:
+    // {5}  有多少位 5位
+    // {8，16}  表示匹配8-16次
+    // {8，}  表示匹配8次以上（至少匹配8次）
+    //  ? 表示匹配0次或1次 
+    //  + 表示一次或多次
+    //  * 匹配0次1次多次（任意次）
+
+    // var reg = /^a{3}b/
+    // var reg = /^[A-Za-z0-9_.]{8,16}$/
+    // var reg = /^[A-Za-z0-9_.]{8,}$/
+    // var reg = /[A-Za-z0-9_.]?/
+    // var reg = /[A-Za-z0-9_.]+/
+    // var reg = /[A-Za-z0-9_.]*/
+    
+    
+    // var reg = /[0-9]/
+    // var reg = /\d/    //    \d  单个0-9 数字
+    // var reg = /\D/    //    \D  非单个0-9 数字   除了0-9
+    // var reg =  /\\a\$/    //   \转义字符 
+
+    // var reg = /\w/     //    \w  单个 0-9 或a-z或 A-Z或 _ 的符号
+    // var reg = /\W/     //    \W  非单个 0-9 或a-z或 A-Z或 _ 的符号
+
+    // var reg = /\s/     //    \s  单个空白符(空格,\n 换行 \t 制表符 \r 回车)
+    // var reg = /\S/     //    \S  非单个空白符(空格,\n 换行 \t 制表符 \r 回车)
+    
+    // var reg = /\b/     //    \b  单个单词边界
+    // var reg = /\B/     //    \B  非单个单词边界
+    
+    
+    // var reg = /(ab)|(cd)/     //   | 或     ()表示分组
+
+    // 匹配16进制颜色值
+    // var reg = /^#([0-9a-fA-F]{3})|([0-9a-fA-F]{6})$/
+    // console.log('reg',reg.test('#ag123c'));
+    
+        var reg = /abc/
+    // console.log(reg.exec('acbabcabc12'));  //返回一个数组，是匹配到的字符串，通过arr[0]获取该字符串
+        var str = 'acbabcabc12'
+
+        console.log(str.match(reg));  
+        // 全局匹配： ['abc', 'abc']  返回匹配到的所有字符串组成的数组 
+        // 无全局匹配：['abc']  返回匹配到的字符串组成的数组,只有一项
+
+
+        // 登录用户名密码检测 
+    </script>
+</body>
+</html>

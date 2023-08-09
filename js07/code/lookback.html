@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="iptFn()">button</button> 
+    <!-- ↓this指向button(事件源) -->
+    <button onclick="console.log(this)">button</button>
+    <script>
+        function iptFn(){
+            console.log(111);
+            console.log(this);  //window
+        }
+        // 1.this指向
+        /* 
+            全局环境下：window  严格模式下指向undefined
+            构造函数：构造函数的实例化对象
+            对象方法：指向对象
+            事件函数：指向事件源
+
+            箭头函数：没有自己的this，箭头函数的this是上下文的this，且不能改变箭头函数的this
+            //
+
+            改变this的方法：
+                call : 第一个参数为this,第二个参数为函数参数，列表传参 直接调用改变this后的函数
+                apply  第一个参数为this,第二个参数为函数参数，数组传参 直接调用改变this后的函数
+                bind  ：传递this  ，不会直接调用函数，而是返回一个改变this后的函数
+        */
+
+        // let date = new Date(年,月-1,日)
+        // let date = new Date(2023,5,0)    //5.31
+        // let date = new Date(2023,5,35)    //7.5
+        let date = new Date(2023,4,0)    //
+        // 当我们给出一个超出范围的参数时，将调整下一次较大的时间增量从而让时间有效
+        console.log(date);
+
+        //2.. 判断某年份是否为闰年，将日期格式化输出 “2015|08|24”，判断两个日期相差的天数，获得 N 天以后的日期
+        let time1 = new Date().getTime()
+        let time2 = new Date(2023,7,16).getTime()
+        console.log(time1,time2);
+        function fn(time1,time2){
+            console.log( time1 - time2)
+            let a = Math.abs(time1 - time2)
+            let days = parseInt(a/1000/60/60/24)
+            console.log(days);
+        }
+        fn(time1,time2)
+        // 获得 N 天以后的日期
+        function fn1 (date,day){
+            let newDate = date+day*24*60*60*1000
+            let lastDate = new Date(newDate)
+            console.log(lastDate);
+        }
+        fn1(time1,20)
+        // 将日期格式化输出 “2015|08|24”
+        let date1 = new Date()
+        let year = date1.getFullYear()
+        let month = date1.getMonth()+1 >10 ? date1.getMonth()+1 : '0'+(date1.getMonth()+1)
+        let day = date1.getDate() >10 ? date1.getDate() : '0'+ date1.getDate()
+        console.log(`${year}|${month}|${day}`);
+
+        
+        console.log(date1.valueOf());
+        console.log(date1.toString());
+
+    </script>
+</body>
+
+</html>
