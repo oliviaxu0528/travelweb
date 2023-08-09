@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(this);
+        //window.alert('123')
+        function Person() {
+            this.name = 'joe',
+                this.age = 5,
+                this.fn = function () {
+                    console.log(this)
+                }
+            this.fn1 = () => {
+                console.log(this)
+            }
+        }
+        const p = new Person()
+        console.log(p);
+        p.fn1()
+
+        //
+        function fn() {
+            console.log(this)
+        }
+        fn();
+
+        var obj = {
+            name: '123',
+            age: 4,
+            get() {
+                console.log(this);
+            }
+        }
+        obj.get()
+    </script>
+</body>
+
+</html>

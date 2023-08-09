@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>date work</title>
     <style>
-        .outer{
+        .outer {
             width: 400px;
             height: 300px;
             border: 3px solid #000;
             text-align: center;
             margin: 50px auto;
         }
-        h1{
+
+        h1 {
             height: 200px;
             line-height: 200px;
         }
-        span{
+
+        span {
             border: 1px solid red;
             padding: 5px;
         }
     </style>
 </head>
+
 <body>
     <div class="outer">
         <h1>秒杀倒计时</h1>
@@ -36,21 +40,21 @@
         // 计算从现在到9.1日0点的倒计时
         // 目标日期
         // var deadLine = new Date('09/01/2023 00:00:00')
-        var deadLine = new Date('08/05/2023 12:16:40')
+        var deadLine = new Date('08/09/2023 12:16:40')
         console.log(deadLine);
-       
-        var fn = ()=>{
+
+        var fn = () => {
             var date = new Date()
-            console.log(date);
-            var during = deadLine-date   //返回一个时间戳   毫秒数
-            console.log(during);
-            var s = parseInt(during/1000)%60
-            var mins = parseInt(during/1000/60)%60
-            var h = parseInt(during/1000/60/60)%24
-            var day = parseInt(during/1000/60/60/24)
-            console.log(s,mins,h,day);
+            //console.log(date);
+            var during = deadLine - date   //返回一个时间戳   毫秒数
+            //console.log(during);
+            var s = parseInt(during / 1000) % 60
+            var mins = parseInt(during / 1000 / 60) % 60
+            var h = parseInt(during / 1000 / 60 / 60) % 24
+            var day = parseInt(during / 1000 / 60 / 60 / 24)
+            //console.log(s,mins,h,day);
             var box = document.getElementsByTagName('span')
-            console.log(box);
+            //console.log(box);
             box[0].innerText = `${day}天`
             box[1].innerText = `${h}时`
             box[2].innerText = `${mins}分`
@@ -58,15 +62,16 @@
 
             const outer = document.querySelector('.outer')
             // 倒计时结束停止计时
-            if(during<=0){
+            if (during <= 0) {
                 outer.innerHTML = '<h1>秒杀开始了</h1>'
                 clearInterval(timer)
             }
         }
         fn()
-        var timer = setInterval(()=>{
+        var timer = setInterval(() => {
             fn()
-        },1000)
+        }, 1000)
     </script>
 </body>
+
 </html>

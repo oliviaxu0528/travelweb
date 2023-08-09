@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1. 编写一个函数，获得一个十六进制的随机颜色的字符串 ( 例如： #20CD4F)
+        function randomColor() {
+            let c = "#" + Math.floor(Math.random() * 16777215).toString(16).toUpperCase();
+            return c
+        }
+        //2.. 判断某年份是否为闰年，将日期格式化输出 “2015|08|24” ，获得某个月份的天数，判断两个日期相差的天数，获得 N 天以后的日期
+
+        //2.1 判断某年份是否为闰年
+        function isLeapYear(year) {
+            if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 == 0)) {
+                return true;
+            }
+            return false;
+        }
+        // 2.2 获得某个月份的天数 - day is 0 shows the days of the months here. 
+        function days(year, month) {
+            month = parseInt(month, 10);
+            console.log('month: ', month)
+            var d = new Date(year, month, 0);
+            console.log('d: ', d)
+            return d.getDate();
+        }
+
+        console.log('2.2: ', days(2024, 2))
+
+        //2.3 将日期格式化输出 “2015|08|24”
+        function formatDate(date1) {
+            const year = date1.getFullYear();
+            const month = date1.getMonth() + 1 > 10 ? date1.getMonth() + 1 :
+            const day = date1.getDate();
+            return `${year}|${month}|${day}`;
+        }
+
+        // Example usage:
+        const date1 = new Date('2015-08-24');
+        const formattedDate = formatDate(date1);
+        console.log('2.3: ', formattedDate); // Output: "2015|08|24"
+
+
+        //2.4 判断两个日期相差的天数
+        function toTimeStamp(dateString) {
+            return new Date(dateString)
+        }
+        function getDistance(date1, date2) {
+            const date1_timeStamp = toTimeStamp(date1);
+            const date2_timeStamp = toTimeStamp(date2);
+            return Math.abs(date1_timeStamp - date2_timeStamp) / (24 * 60 * 60 * 1000)
+        }
+        var date3 = '2022-03-05';
+        var date2 = '2023-03-05'
+        console.log('2.4: ', getDistance(date3, date2))
+
+
+
+        //2.5 获得 N 天以后的日期
+        function nDayLater(startDate, n) {
+            // Get the timestamp of the startDate
+            const timestamp = new Date(startDate);
+
+            // Calculate the timestamp for N days later
+            const nDayLaterTimeStamp = timestamp + n * 24 * 60 * 60 * 1000;
+
+            return new Date(nDayLaterTimeStamp);
+        }
+        const starting = '2023-01-02'
+        console.log('2.5: ', nDayLater(starting, 12))
+
+
+
+        //2.6 取一年内的某一天
+        function getRandomDate(startDate, endDate) {
+            const startTimestamp = startDate.getTime();
+            const endTimestamp = endDate.getTime();
+            console.log('end: ', endTimestamp)
+            const randomTimestamp = Math.floor(Math.random() * (endTimestamp - startTimestamp + 1)) + startTimestamp;
+
+            return new Date(randomTimestamp);
+        }
+
+        const startDate = new Date('2023-01-01');
+        const endDate = new Date('2023-12-31');
+        const randomDate = getRandomDate(startDate, endDate);
+
+        console.log(randomDate);
+
+
+        //3.做定时器-限时秒杀
+        var date = '2023/08/05';
+        console.log(date.replaceAll('/', '-'))
+
+
+
+        //4.数组点名，点到从数组中删除
+        let arr = ['jack', 'tom', 'mary', 'john', 'joel', 'linda', 'bob', 'oliver']
+
+        console.log('arr: ', arr)
+        function name() {
+            for (let i = 0; i < arr.length - 1; i++) {
+                let random = Math.random() * arr.length
+            }
+        }
+
+    </script>
+</body>
+
+</html>
