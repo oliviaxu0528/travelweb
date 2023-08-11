@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //改变this 的三种方法：call bind apply
+        function fun(a, b, c) {
+            //console.log("==========");
+            console.log('this', this)
+            console.log('this.fun', this.fun);
+            //console.log(this.a);
+            console.log(a, b, c);
+
+        }
+        //fun(5, 7)
+
+        var obj = {
+            name: 'obj',
+            age: 3,
+            say: () => {
+                console.log(11111)
+            }
+        }
+        //1.   fun.call(this对象，函数参数)
+        fun.call(obj.say, 'dw', 'd2222', 'dwdewed')
+        //console.log(fun.call(obj, 'calla', 'callb'))
+
+
+        //2.   fn.apply(this对象,[a,b,c,d,...])
+        fun.apply(obj, ['applya', 'xxxx'])
+
+
+        //#3 -> fun.bind()
+        //3.1
+        var bindFun = fun.bind(obj, 'binda', 'bindb')
+        //console.log(bindFun)
+        bindFun()
+
+        //3.2 -> same as 3.1
+        var bindFun2 = fun.bind(obj)
+        bindFun2('bind1111', 'bindaaa')
+
+
+    </script>
+</body>
+
+</html>

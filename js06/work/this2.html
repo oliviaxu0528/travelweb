@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //对象下面的方法 this 指该对象
+        var name = 'zhangsan'
+        var obj = {
+            age: 4,
+            name,
+            getIt() {
+                console.log(this);
+            },
+            fn2: function () {
+                console.log(this);
+            },
+            fn3: () => {
+                console.log(this);
+            }
+        }
+        obj.getIt();
+        obj.fn2();
+        obj.fn3();
+
+
+
+    </script>
+</body>
+
+</html>
