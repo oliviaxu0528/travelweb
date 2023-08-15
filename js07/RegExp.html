@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+/
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //regular expression
+        //正则的定义
+        //1.字面量定义方法
+        var reg = /abcd/i
+        //2.内置构造函数
+        var reg1 = new RegExp('abc', 'ig')
+        //var reg1 = new RegExp('要匹配的字符串',修饰符(optional))
+        /*
+        修饰符：
+        i：ignore 忽略大小写
+        g: global 
+         */
+        // reg.test(string) 匹配成功返回true，
+        var str = 'fgsjabcDAbcrfswe0123'
+        console.log(reg.test(str));
+        console.log(/a/.test('star'));
+        console.log(/abc/g.test(str));
+
+        //3. []匹配到中括号内任一一个元素
+        var numReg = /[0-9]/
+        //var numReg = /[0-9A-Za-z]/
+        console.log(numReg.test('de'));
+
+        //4.[^]表示除了[]里面元素的任意字符
+        // var reg = /^ab/   //以ab开头
+        // var reg = /ab$/   //以ab结尾
+        // var reg = /^ab$/     //字符只能是ab
+        var reg4 = /^ab/
+        console.log('reg4', reg4.test('ab'))
+
+
+
+    </script>
+</body>
+
+</html>
